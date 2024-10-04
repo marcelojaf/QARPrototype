@@ -12,8 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.getElementById("search-button");
   const loadingElement = document.getElementById("loading");
   const resultsList = document.getElementById("results-list");
+  const quantityModal = document.getElementById("quantity-modal");
+  const quantityInput = document.getElementById("quantity-input");
+  const confirmQuantityButton = document.getElementById("confirm-quantity");
 
-  searchButton.addEventListener("click", () => {
+  let selectedItem = null;
+
+  searchButton.addEventListener("click", performSearch);
+
+  function performSearch() {
     const searchTerm = searchInput.value.toLowerCase();
 
     loadingElement.classList.remove("hidden");
@@ -31,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       filteredResults.forEach((item) => {
         const li = document.createElement("li");
         li.innerHTML = `<strong>${item.ComponentName}</strong>${item.SupplierPartNumber}`;
+        li.addEventListener("click", () => showQuantityModal(item));
         resultsList.appendChild(li);
       });
 
@@ -38,5 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
         resultsList.innerHTML = "<li>No results found</li>";
       }
     }, 2000);
+  }
+
+  function showQuantityModal(item) {
+    selectedItem = item;
+    quantityModal.classList.remove("hidden");
+  }
+
+  confirmQuantityButton.addEventListener("click", () => {
+    const quantity = parseInt(quantityInput.value);
+    if (quantity > 0) {
+      const itemData = {
+        ...selectedItem,
+        quantity: quantity,
+      };
+      localStorage.setItem("selectedItem", JSON.stringify(itemData));
+      window.location.href = "select-items.html";
+    } else {
+      alert("Please enter a valid quantity");
+    }
   });
 });
