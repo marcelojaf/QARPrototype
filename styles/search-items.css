@@ -42,6 +42,12 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.results-list li:hover {
+  background-color: #e0e0e0;
 }
 
 .results-list li strong {
@@ -66,12 +72,22 @@
   padding: 20px;
   border-radius: 5px;
   text-align: center;
+  width: 80%;
+  max-width: 300px;
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .modal input {
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
   margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 .modal button {
@@ -80,6 +96,9 @@
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .hidden {

@@ -23,6 +23,7 @@
         >
         <h1>Search Items</h1>
       </header>
+
       <main>
         <div class="search-container">
           <input
@@ -40,20 +41,22 @@
           id="results-list"
           class="results-list"></ul>
       </main>
-    </div>
-    <div
-      id="quantity-modal"
-      class="modal hidden">
-      <div class="modal-content">
-        <h2>Enter Quantity</h2>
-        <input
-          type="number"
-          id="quantity-input"
-          min="1"
-          value="1" />
-        <button id="confirm-quantity">Confirm</button>
+
+      <div
+        id="quantity-modal"
+        class="modal hidden">
+        <div class="modal-content">
+          <h2>Enter Quantity</h2>
+          <input
+            type="number"
+            id="quantity-input"
+            min="1"
+            value="1" />
+          <button id="confirm-quantity">Confirm</button>
+        </div>
       </div>
     </div>
+
     <script src="js/search-items.js"></script>
   </body>
 </html>

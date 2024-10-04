@@ -1,4 +1,4 @@
-// Dados de teste
+// Test data
 const testData = [
   { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-L8" },
   { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-K8-NP" },
@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let selectedItem = null;
 
+  // Ensure the modal is hidden when the page loads
+  quantityModal.classList.add("hidden");
+
+  // Perform search when the search button is clicked
   searchButton.addEventListener("click", performSearch);
 
   function performSearch() {
@@ -26,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingElement.classList.remove("hidden");
     resultsList.innerHTML = "";
 
+    // Simulate API call with a 2-second delay
     setTimeout(() => {
       const filteredResults = testData.filter(
         (item) =>
@@ -60,10 +65,34 @@ document.addEventListener("DOMContentLoaded", () => {
         ...selectedItem,
         quantity: quantity,
       };
-      localStorage.setItem("selectedItem", JSON.stringify(itemData));
+
+      // Get the current list of items or start a new one if it doesn't exist
+      let selectedItems =
+        JSON.parse(localStorage.getItem("selectedItems")) || [];
+
+      // Add the new item to the list
+      selectedItems.push(itemData);
+
+      // Save the updated list to localStorage
+      localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+
+      // Hide the modal
+      quantityModal.classList.add("hidden");
+
+      // Reset the quantity input
+      quantityInput.value = "1";
+
+      // Redirect to the select-items page
       window.location.href = "select-items.html";
     } else {
       alert("Please enter a valid quantity");
+    }
+  });
+
+  // Add event listener to close the modal when clicking outside of it
+  quantityModal.addEventListener("click", (e) => {
+    if (e.target === quantityModal) {
+      quantityModal.classList.add("hidden");
     }
   });
 });
