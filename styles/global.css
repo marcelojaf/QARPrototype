@@ -12,12 +12,14 @@ html {
 
 .phone-container {
   width: 360px;
-  height: 800px; /* Altura fixa para todas as páginas */
+  height: 800px;
   border: 10px solid #000;
   background-color: white;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -37,6 +39,8 @@ h1 {
 }
 
 main {
+  flex: 1;
+  overflow-y: auto;
   padding: 20px;
 }
 

@@ -1,15 +1,23 @@
+main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px); /* Adjust based on header height */
+}
+
 h2 {
   color: #666;
   font-size: 18px;
   margin-bottom: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.form-fields {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 70px; /* Space for the NEXT button */
 }
 
 label {
+  display: block;
   margin-top: 15px;
   color: #666;
   font-size: 14px;
@@ -18,12 +26,14 @@ label {
 select,
 input[type="text"],
 input[type="date"] {
+  width: 100%;
   margin-top: 5px;
   padding: 12px;
   border: none;
   border-bottom: 1px solid #ccc;
   font-size: 16px;
   background-color: #f9f9f9;
+  box-sizing: border-box;
 }
 
 .next-button {
@@ -32,7 +42,10 @@ input[type="date"] {
   border: none;
   padding: 15px;
   font-size: 18px;
-  margin-top: 30px;
   cursor: pointer;
-  border-radius: 5px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  width: calc(100% - 40px);
 }

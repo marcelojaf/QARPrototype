@@ -25,82 +25,85 @@
       </header>
       <main>
         <h2>Select Customer and Contact</h2>
-        <form>
-          <label for="customer">Select Customer:</label>
-          <select
-            id="customer"
-            name="customer">
-            <option value="">Select Customer</option>
-            <option value="customer1">Customer 1</option>
-            <option value="customer2">Customer 2</option>
-            <option value="customer3">Customer 3</option>
-          </select>
+        <form
+          id="customer-form"
+          action="select-items.html">
+          <div class="form-fields">
+            <label for="customer">Select Customer:</label>
+            <select
+              id="customer"
+              name="customer">
+              <option value="">Select Customer</option>
+              <option value="customer1">Customer 1</option>
+              <option value="customer2">Customer 2</option>
+              <option value="customer3">Customer 3</option>
+            </select>
 
-          <label for="shipping">Select Shipping Address:</label>
-          <select
-            id="shipping"
-            name="shipping">
-            <option value="">Select Shipping Address</option>
-            <option value="address1">Address 1</option>
-            <option value="address2">Address 2</option>
-            <option value="address3">Address 3</option>
-          </select>
+            <label for="shipping">Select Shipping Address:</label>
+            <select
+              id="shipping"
+              name="shipping">
+              <option value="">Select Shipping Address</option>
+              <option value="address1">Address 1</option>
+              <option value="address2">Address 2</option>
+              <option value="address3">Address 3</option>
+            </select>
 
-          <label for="contact">Select Contact:</label>
-          <select
-            id="contact"
-            name="contact">
-            <option value="">Select Contact</option>
-            <option value="contact1">Contact 1</option>
-            <option value="contact2">Contact 2</option>
-            <option value="contact3">Contact 3</option>
-          </select>
+            <label for="contact">Select Contact:</label>
+            <select
+              id="contact"
+              name="contact">
+              <option value="">Select Contact</option>
+              <option value="contact1">Contact 1</option>
+              <option value="contact2">Contact 2</option>
+              <option value="contact3">Contact 3</option>
+            </select>
 
-          <label for="delivery-date">Delivery Date:</label>
-          <input
-            type="date"
-            id="delivery-date"
-            name="delivery-date"
-            value="2024-10-04" />
+            <label for="delivery-date">Delivery Date:</label>
+            <input
+              type="date"
+              id="delivery-date"
+              name="delivery-date" />
 
-          <label for="delivery-field">Delivery Field:</label>
-          <input
-            type="text"
-            id="delivery-field"
-            name="delivery-field" />
+            <label for="delivery-field">Delivery Field:</label>
+            <input
+              type="text"
+              id="delivery-field"
+              name="delivery-field" />
 
-          <label for="delivery-well">Delivery Well:</label>
-          <input
-            type="text"
-            id="delivery-well"
-            name="delivery-well" />
+            <label for="delivery-well">Delivery Well:</label>
+            <input
+              type="text"
+              id="delivery-well"
+              name="delivery-well" />
 
-          <label for="delivery-location">Delivery Location:</label>
-          <input
-            type="text"
-            id="delivery-location"
-            name="delivery-location" />
+            <label for="delivery-location">Delivery Location:</label>
+            <input
+              type="text"
+              id="delivery-location"
+              name="delivery-location" />
 
-          <label for="delivery-state">Delivery State:</label>
-          <select
-            id="delivery-state"
-            name="delivery-state">
-            <option value="">Select State</option>
-            <option value="AL">AL - Alabama</option>
-            <option value="AK">AK - Alaska</option>
-            <option value="AZ">AZ - Arizona</option>
-            <option value="AR">AR - Arkansas</option>
-            <option value="CA">CA - California</option>
-            <!-- Add all other states here -->
-            <option value="WY">WY - Wyoming</option>
-          </select>
-
-          <button
-            type="submit"
-            class="next-button">
-            NEXT
-          </button>
+            <label for="delivery-state">Delivery State:</label>
+            <select
+              id="delivery-state"
+              name="delivery-state">
+              <option value="">Select State</option>
+              <option value="AL">AL - Alabama</option>
+              <option value="AK">AK - Alaska</option>
+              <option value="AZ">AZ - Arizona</option>
+              <option value="AR">AR - Arkansas</option>
+              <option value="CA">CA - California</option>
+              <!-- Add other states here -->
+              <option value="WY">WY - Wyoming</option>
+            </select>
+          </div>
         </form>
+        <button
+          type="submit"
+          form="customer-form"
+          class="next-button">
+          NEXT
+        </button>
       </main>
     </div>
   </body>
