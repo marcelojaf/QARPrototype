@@ -2,6 +2,7 @@ main {
   display: flex;
   flex-direction: column;
   height: calc(100% - 60px); /* Adjust based on header height */
+  overflow: hidden;
 }
 
 h2 {
@@ -10,10 +11,15 @@ h2 {
   margin-bottom: 20px;
 }
 
-.form-fields {
+.form-container {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 70px; /* Space for the NEXT button */
+  padding-right: 5px; /* Add some space for the scrollbar */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 label {
@@ -36,6 +42,10 @@ input[type="date"] {
   box-sizing: border-box;
 }
 
+.button-container {
+  padding: 20px 0;
+}
+
 .next-button {
   background-color: #4a6da7;
   color: white;
@@ -43,9 +53,5 @@ input[type="date"] {
   padding: 15px;
   font-size: 18px;
   cursor: pointer;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  width: calc(100% - 40px);
+  width: 100%;
 }

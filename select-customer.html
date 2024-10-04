@@ -25,10 +25,10 @@
       </header>
       <main>
         <h2>Select Customer and Contact</h2>
-        <form
-          id="customer-form"
-          action="select-items.html">
-          <div class="form-fields">
+        <div class="form-container">
+          <form
+            id="customer-form"
+            action="select-items.html">
             <label for="customer">Select Customer:</label>
             <select
               id="customer"
@@ -96,14 +96,16 @@
               <!-- Add other states here -->
               <option value="WY">WY - Wyoming</option>
             </select>
-          </div>
-        </form>
-        <button
-          type="submit"
-          form="customer-form"
-          class="next-button">
-          NEXT
-        </button>
+          </form>
+        </div>
+        <div class="button-container">
+          <button
+            type="submit"
+            form="customer-form"
+            class="next-button">
+            NEXT
+          </button>
+        </div>
       </main>
     </div>
   </body>
