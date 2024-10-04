@@ -1,3 +1,12 @@
+.phone-container {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .menu-button {
   background: none;
   border: none;
@@ -6,56 +15,40 @@
   margin-right: 15px;
 }
 
-.new-button {
-  background-color: #4a6da7;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  width: 100%;
-  margin-bottom: 20px;
+main {
+  flex: 1;
+  overflow-y: auto;
 }
 
 h2 {
   color: #666;
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
 .ticket-list-container {
   border: 1px solid #ccc;
-  height: calc(100% - 100px);
+  border-radius: 4px;
   overflow-y: auto;
+  max-height: calc(100% - 100px);
 }
 
 .ticket-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .ticket {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
 }
 
-.ticket p {
-  margin: 5px 0;
+.ticket:hover {
+  background-color: #f8f9fa;
 }
 
-.ticket-number,
 .company-name {
   font-weight: bold;
 }
 
-.status {
-  font-weight: bold;
-}
-
-.status.submitted {
-  color: green;
-}
-
-.status.draft {
-  color: red;
+.badge-warning {
+  background-color: #ffc107;
+  color: #212529;
 }

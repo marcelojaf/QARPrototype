@@ -8,6 +8,12 @@
     <title>Select a Customer</title>
     <link
       rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link
+      rel="stylesheet"
       href="styles/global.css" />
     <link
       rel="stylesheet"
@@ -15,98 +21,155 @@
   </head>
   <body>
     <div class="phone-container">
-      <header>
+      <header class="bg-primary text-white p-3">
         <a
           href="index.html"
-          class="back-button"
-          >←</a
-        >
-        <h1>Select a Customer</h1>
+          class="back-button text-white"
+          ><i class="fas fa-arrow-left"></i
+        ></a>
+        <h1 class="mb-0">Select a Customer</h1>
       </header>
-      <main>
-        <h2>Select Customer and Contact</h2>
-        <div class="form-container">
-          <form
-            id="customer-form"
-            action="select-items.html">
+
+      <main class="p-3">
+        <h2 class="mb-4">Select Customer and Contact</h2>
+        <form
+          id="customer-form"
+          class="form-container">
+          <div class="form-group">
             <label for="customer">Select Customer:</label>
             <select
               id="customer"
-              name="customer">
+              class="form-control">
               <option value="">Select Customer</option>
               <option value="customer1">Customer 1</option>
               <option value="customer2">Customer 2</option>
               <option value="customer3">Customer 3</option>
             </select>
-
+          </div>
+          <div class="form-group">
             <label for="shipping">Select Shipping Address:</label>
             <select
               id="shipping"
-              name="shipping">
+              class="form-control">
               <option value="">Select Shipping Address</option>
               <option value="address1">Address 1</option>
               <option value="address2">Address 2</option>
               <option value="address3">Address 3</option>
             </select>
-
+          </div>
+          <div class="form-group">
             <label for="contact">Select Contact:</label>
             <select
               id="contact"
-              name="contact">
+              class="form-control">
               <option value="">Select Contact</option>
               <option value="contact1">Contact 1</option>
               <option value="contact2">Contact 2</option>
               <option value="contact3">Contact 3</option>
             </select>
-
+          </div>
+          <div class="form-group">
             <label for="delivery-date">Delivery Date:</label>
             <input
               type="date"
               id="delivery-date"
-              name="delivery-date" />
-
+              class="form-control" />
+          </div>
+          <div class="form-group">
             <label for="delivery-field">Delivery Field:</label>
             <input
               type="text"
               id="delivery-field"
-              name="delivery-field" />
-
+              class="form-control" />
+          </div>
+          <div class="form-group">
             <label for="delivery-well">Delivery Well:</label>
             <input
               type="text"
               id="delivery-well"
-              name="delivery-well" />
-
+              class="form-control" />
+          </div>
+          <div class="form-group">
             <label for="delivery-location">Delivery Location:</label>
             <input
               type="text"
               id="delivery-location"
-              name="delivery-location" />
-
+              class="form-control" />
+          </div>
+          <div class="form-group">
             <label for="delivery-state">Delivery State:</label>
             <select
               id="delivery-state"
-              name="delivery-state">
+              class="form-control">
               <option value="">Select State</option>
               <option value="AL">AL - Alabama</option>
               <option value="AK">AK - Alaska</option>
               <option value="AZ">AZ - Arizona</option>
               <option value="AR">AR - Arkansas</option>
               <option value="CA">CA - California</option>
-              <!-- Add other states here -->
+              <option value="CO">CO - Colorado</option>
+              <option value="CT">CT - Connecticut</option>
+              <option value="DE">DE - Delaware</option>
+              <option value="FL">FL - Florida</option>
+              <option value="GA">GA - Georgia</option>
+              <option value="HI">HI - Hawaii</option>
+              <option value="ID">ID - Idaho</option>
+              <option value="IL">IL - Illinois</option>
+              <option value="IN">IN - Indiana</option>
+              <option value="IA">IA - Iowa</option>
+              <option value="KS">KS - Kansas</option>
+              <option value="KY">KY - Kentucky</option>
+              <option value="LA">LA - Louisiana</option>
+              <option value="ME">ME - Maine</option>
+              <option value="MD">MD - Maryland</option>
+              <option value="MA">MA - Massachusetts</option>
+              <option value="MI">MI - Michigan</option>
+              <option value="MN">MN - Minnesota</option>
+              <option value="MS">MS - Mississippi</option>
+              <option value="MO">MO - Missouri</option>
+              <option value="MT">MT - Montana</option>
+              <option value="NE">NE - Nebraska</option>
+              <option value="NV">NV - Nevada</option>
+              <option value="NH">NH - New Hampshire</option>
+              <option value="NJ">NJ - New Jersey</option>
+              <option value="NM">NM - New Mexico</option>
+              <option value="NY">NY - New York</option>
+              <option value="NC">NC - North Carolina</option>
+              <option value="ND">ND - North Dakota</option>
+              <option value="OH">OH - Ohio</option>
+              <option value="OK">OK - Oklahoma</option>
+              <option value="OR">OR - Oregon</option>
+              <option value="PA">PA - Pennsylvania</option>
+              <option value="RI">RI - Rhode Island</option>
+              <option value="SC">SC - South Carolina</option>
+              <option value="SD">SD - South Dakota</option>
+              <option value="TN">TN - Tennessee</option>
+              <option value="TX">TX - Texas</option>
+              <option value="UT">UT - Utah</option>
+              <option value="VT">VT - Vermont</option>
+              <option value="VA">VA - Virginia</option>
+              <option value="WA">WA - Washington</option>
+              <option value="WV">WV - West Virginia</option>
+              <option value="WI">WI - Wisconsin</option>
               <option value="WY">WY - Wyoming</option>
+              <option value="DC">DC - District of Columbia</option>
             </select>
-          </form>
-        </div>
-        <div class="button-container">
-          <button
-            type="submit"
-            form="customer-form"
-            class="next-button">
-            NEXT
-          </button>
-        </div>
+          </div>
+        </form>
       </main>
+
+      <footer class="p-3">
+        <button
+          type="submit"
+          form="customer-form"
+          class="btn btn-primary btn-block">
+          NEXT
+        </button>
+      </footer>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="js/select-customer.js"></script>
   </body>
 </html>

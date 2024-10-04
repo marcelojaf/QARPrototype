@@ -34,7 +34,7 @@ $(document).ready(function () {
         }
       });
 
-      totalAmount += item.quantity * 10;
+      totalAmount += 0;
     });
 
     $totalAmount.text(`Total Amount: $${totalAmount.toFixed(2)}`);
