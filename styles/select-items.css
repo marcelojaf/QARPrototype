@@ -33,6 +33,7 @@ main {
 
 .item:hover .item-content {
   background-color: #f8f9fa;
+  cursor: pointer;
 }
 
 .swipe-menu {

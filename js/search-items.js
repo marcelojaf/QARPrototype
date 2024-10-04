@@ -1,34 +1,30 @@
-// Test data
-const testData = [
-  { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-L8" },
-  { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-K8-NP" },
-  { ComponentName: "Cup Packer", SupplierPartNumber: "811-400-7015-280-P8" },
-  { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-L8-A" },
-  { ComponentName: "Cup Packer", SupplierPartNumber: "811-400-7015-280-P9" },
-];
-
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.getElementById("search-input");
-  const searchButton = document.getElementById("search-button");
-  const loadingElement = document.getElementById("loading");
-  const resultsList = document.getElementById("results-list");
-  const quantityModal = document.getElementById("quantity-modal");
-  const quantityInput = document.getElementById("quantity-input");
-  const confirmQuantityButton = document.getElementById("confirm-quantity");
+$(document).ready(function () {
+  const $searchInput = $("#search-input");
+  const $searchButton = $("#search-button");
+  const $loading = $("#loading");
+  const $resultsList = $("#results-list");
+  const $quantityModal = $("#quantity-modal");
+  const $quantityInput = $("#quantity-input");
+  const $confirmQuantity = $("#confirm-quantity");
 
   let selectedItem = null;
 
-  // Ensure the modal is hidden when the page loads
-  quantityModal.classList.add("hidden");
+  // Test data
+  const testData = [
+    { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-L8" },
+    { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-K8-NP" },
+    { ComponentName: "Cup Packer", SupplierPartNumber: "811-400-7015-280-P8" },
+    { ComponentName: "SandMaze", SupplierPartNumber: "800-400-280-L8-A" },
+    { ComponentName: "Cup Packer", SupplierPartNumber: "811-400-7015-280-P9" },
+  ];
 
-  // Perform search when the search button is clicked
-  searchButton.addEventListener("click", performSearch);
+  $searchButton.on("click", performSearch);
 
   function performSearch() {
-    const searchTerm = searchInput.value.toLowerCase();
+    const searchTerm = $searchInput.val().toLowerCase();
 
-    loadingElement.classList.remove("hidden");
-    resultsList.innerHTML = "";
+    $loading.removeClass("hidden");
+    $resultsList.empty();
 
     // Simulate API call with a 2-second delay
     setTimeout(() => {
@@ -38,28 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
           item.ComponentName.toLowerCase().includes(searchTerm)
       );
 
-      loadingElement.classList.add("hidden");
+      $loading.addClass("hidden");
 
       filteredResults.forEach((item) => {
-        const li = document.createElement("li");
-        li.innerHTML = `<strong>${item.ComponentName}</strong>${item.SupplierPartNumber}`;
-        li.addEventListener("click", () => showQuantityModal(item));
-        resultsList.appendChild(li);
+        const $li = $(`
+                  <li>
+                      <strong>${item.ComponentName}</strong>
+                      ${item.SupplierPartNumber}
+                  </li>
+              `);
+        $li.on("click", () => showQuantityModal(item));
+        $resultsList.append($li);
       });
 
       if (filteredResults.length === 0) {
-        resultsList.innerHTML = "<li>No results found</li>";
+        $resultsList.append("<li>No results found</li>");
       }
     }, 2000);
   }
 
   function showQuantityModal(item) {
     selectedItem = item;
-    quantityModal.classList.remove("hidden");
+    $quantityModal.modal("show");
   }
 
-  confirmQuantityButton.addEventListener("click", () => {
-    const quantity = parseInt(quantityInput.value);
+  $confirmQuantity.on("click", () => {
+    const quantity = parseInt($quantityInput.val());
     if (quantity > 0) {
       const itemData = {
         ...selectedItem,
@@ -77,10 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
 
       // Hide the modal
-      quantityModal.classList.add("hidden");
-
-      // Reset the quantity input
-      quantityInput.value = "1";
+      $quantityModal.modal("hide");
 
       // Redirect to the select-items page
       window.location.href = "select-items.html";
@@ -89,10 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Add event listener to close the modal when clicking outside of it
-  quantityModal.addEventListener("click", (e) => {
-    if (e.target === quantityModal) {
-      quantityModal.classList.add("hidden");
-    }
+  $quantityModal.on("hidden.bs.modal", () => {
+    $quantityInput.val(1);
   });
 });
