@@ -1,0 +1,61 @@
+.menu-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.new-button {
+  background-color: #4a6da7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #666;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.ticket-list-container {
+  border: 1px solid #ccc;
+  height: calc(100% - 200px);
+  overflow-y: auto;
+}
+
+.ticket-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ticket {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.ticket p {
+  margin: 5px 0;
+}
+
+.ticket-number,
+.company-name {
+  font-weight: bold;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status.submitted {
+  color: green;
+}
+
+.status.draft {
+  color: red;
+}
