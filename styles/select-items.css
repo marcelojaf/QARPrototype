@@ -2,10 +2,12 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .add-item-button {
+  display: block;
   background-color: #4a6da7;
   color: white;
   border: none;
@@ -14,6 +16,9 @@ main {
   width: 100%;
   margin-bottom: 20px;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .items-list {

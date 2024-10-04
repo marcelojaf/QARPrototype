@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Search Items</title>
+    <link
+      rel="stylesheet"
+      href="styles/global.css" />
+    <link
+      rel="stylesheet"
+      href="styles/search-items.css" />
+  </head>
+  <body>
+    <div class="phone-container">
+      <header>
+        <a
+          href="select-items.html"
+          class="back-button"
+          >←</a
+        >
+        <h1>Search Items</h1>
+      </header>
+      <main>
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Type a supplier part number" />
+          <button id="search-button">Search</button>
+        </div>
+        <div
+          id="loading"
+          class="loading hidden">
+          Searching...
+        </div>
+        <ul
+          id="results-list"
+          class="results-list"></ul>
+      </main>
+    </div>
+    <script src="js/search-items.js"></script>
+  </body>
+</html>
