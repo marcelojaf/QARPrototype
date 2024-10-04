@@ -1,40 +1,45 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const itemsList = document.getElementById("items-list");
-  const totalAmountElement = document.querySelector(".total-amount p");
+$(document).ready(function () {
+  const $itemsList = $("#items-list");
+  const $totalAmount = $(".total-amount p");
 
-  // Function to render the items
   function renderItems() {
-    // Clear the current list
-    itemsList.innerHTML = "";
-
-    // Get items from localStorage
+    $itemsList.empty();
     const selectedItems =
       JSON.parse(localStorage.getItem("selectedItems")) || [];
-
-    // Variable to store the total amount
     let totalAmount = 0;
 
-    // Render each item
     selectedItems.forEach((item, index) => {
-      const itemElement = document.createElement("div");
-      itemElement.classList.add("item");
-      itemElement.innerHTML = `
-          <strong>${item.ComponentName}</strong>
-          <p>${item.SupplierPartNumber}</p>
-          <p>Quantity: ${item.quantity}</p>
-          <button class="remove-item" data-index="${index}">Remove</button>
-        `;
-      itemsList.appendChild(itemElement);
+      const $itemElement = $(`
+              <div class="item" data-index="${index}">
+                  <div class="item-content">
+                      <strong>${item.ComponentName}</strong>
+                      <p>${item.SupplierPartNumber}</p>
+                      <p>Quantity: ${item.quantity}</p>
+                  </div>
+                  <div class="swipe-menu">
+                      <button class="remove-item"><i class="fas fa-trash"></i></button>
+                  </div>
+              </div>
+          `);
 
-      // Add to total (assuming each item has a price of $10 for this example)
+      $itemsList.append($itemElement);
+
+      const hammer = new Hammer($itemElement[0]);
+      hammer.on("swipeleft swiperight", function (ev) {
+        const $swipeMenu = $itemElement.find(".swipe-menu");
+        if (ev.type === "swipeleft") {
+          $swipeMenu.css("right", "0");
+        } else if (ev.type === "swiperight") {
+          $swipeMenu.css("right", "-80px");
+        }
+      });
+
       totalAmount += item.quantity * 10;
     });
 
-    // Update the total on the screen
-    totalAmountElement.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
+    $totalAmount.text(`Total Amount: $${totalAmount.toFixed(2)}`);
   }
 
-  // Function to remove an item
   function removeItem(index) {
     let selectedItems = JSON.parse(localStorage.getItem("selectedItems")) || [];
     selectedItems.splice(index, 1);
@@ -42,14 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderItems();
   }
 
-  // Add click event to remove items
-  itemsList.addEventListener("click", (e) => {
-    if (e.target.classList.contains("remove-item")) {
-      const index = e.target.getAttribute("data-index");
-      removeItem(index);
-    }
+  $itemsList.on("click", ".remove-item", function () {
+    const index = $(this).closest(".item").data("index");
+    removeItem(index);
   });
 
-  // Initially render the items
   renderItems();
 });

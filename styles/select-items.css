@@ -1,58 +1,60 @@
-main {
+.phone-container {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.add-item-button {
-  display: block;
-  background-color: #4a6da7;
-  color: white;
-  border: none;
-  padding: 15px;
-  font-size: 18px;
-  width: 100%;
-  margin-bottom: 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
+main {
+  flex: 1;
+  overflow-y: auto;
 }
 
 .items-list {
-  flex: 1;
   overflow-y: auto;
-  margin-bottom: 20px;
 }
 
-.footer-content {
-  position: sticky;
-  bottom: 0;
-  background-color: white;
-  padding-top: 10px;
-}
-
-.total-amount {
-  text-align: right;
-  font-size: 18px;
-  font-weight: bold;
+.item {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
   margin-bottom: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  touch-action: pan-y;
 }
 
-.action-buttons {
+.item-content {
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.item:hover .item-content {
+  background-color: #f8f9fa;
+}
+
+.swipe-menu {
+  position: absolute;
+  top: 0;
+  right: -80px;
+  height: 100%;
+  width: 80px;
+  background-color: #dc3545;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.3s ease;
 }
 
-.save-draft-button,
-.submit-button {
-  background-color: #4a6da7;
+.remove-item {
   color: white;
   border: none;
-  padding: 15px;
-  font-size: 16px;
-  width: 48%;
-  cursor: pointer;
+  background: none;
+  font-size: 1.2rem;
+}
+
+footer {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
