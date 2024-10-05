@@ -1,9 +1,12 @@
 $(document).ready(function () {
   const $itemsList = $("#items-list");
-  const $totalAmount = $(".total-amount p");
+  const $totalAmount = $(".total-amount");
   const $serialNumberModal = $("#serial-number-modal");
   const $serialNumberInput = $("#serial-number-input");
   const $confirmSerialNumber = $("#confirm-serial-number");
+  const $cancelSerialNumber = $(
+    "#serial-number-modal .modal-footer .btn-secondary"
+  );
 
   let currentItemIndex = -1;
 
@@ -76,6 +79,10 @@ $(document).ready(function () {
     renderItems();
   }
 
+  function closeSwipeMenu() {
+    $(".swipe-menu").css("right", "-160px");
+  }
+
   $itemsList.on("click", ".remove-item", function () {
     const index = $(this).closest(".item").data("index");
     removeItem(index);
@@ -92,9 +99,18 @@ $(document).ready(function () {
       assignSerialNumber(serialNumber);
       $serialNumberModal.modal("hide");
       $serialNumberInput.val("");
+      closeSwipeMenu();
     } else {
       alert("Please enter a valid serial number");
     }
+  });
+
+  $cancelSerialNumber.on("click", function () {
+    closeSwipeMenu();
+  });
+
+  $serialNumberModal.on("hidden.bs.modal", function () {
+    closeSwipeMenu();
   });
 
   renderItems();
