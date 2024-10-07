@@ -1,29 +1,25 @@
 $(document).ready(function () {
   const $itemsList = $("#items-list");
-  const $totalAmount = $(".total-amount");
+  const $totalAmount = $(".total-amount p");
   const $serialNumberModal = $("#serial-number-modal");
   const $serialNumberInput = $("#serial-number-input");
   const $confirmSerialNumber = $("#confirm-serial-number");
-  const $cancelSerialNumber = $(
-    "#serial-number-modal .modal-footer .btn-secondary"
-  );
 
   let currentItemIndex = -1;
 
   function renderItems() {
     $itemsList.empty();
-    const selectedItems =
-      JSON.parse(localStorage.getItem("selectedItems")) || [];
+    const selectedItems = JSON.parse(localStorage.getItem("selectedItems")) || [];
     let totalAmount = 0;
 
     selectedItems.forEach((item, index) => {
       const serialNumberStatus = item.hasSerialNumber
         ? `<span class="serial-number-status assigned">Serial Number Assigned</span>`
         : '<span class="serial-number-status pending">Serial Number Pending</span>';
-
+      
       const serialNumberDisplay = item.hasSerialNumber
         ? `<p>Serial Number: ${item.serialNumber}</p>`
-        : "";
+        : '';
 
       const $itemElement = $(`
         <div class="item" data-index="${index}">
@@ -68,13 +64,27 @@ $(document).ready(function () {
 
   function showSerialNumberModal(index) {
     currentItemIndex = index;
+    let selectedItems = JSON.parse(localStorage.getItem("selectedItems")) || [];
+    let currentItem = selectedItems[index];
+    
+    if (currentItem.hasSerialNumber) {
+      $serialNumberInput.val(currentItem.serialNumber);
+    } else {
+      $serialNumberInput.val("");
+    }
+    
     $serialNumberModal.modal("show");
   }
 
-  function assignSerialNumber(serialNumber) {
+  function updateSerialNumber(serialNumber) {
     let selectedItems = JSON.parse(localStorage.getItem("selectedItems")) || [];
-    selectedItems[currentItemIndex].hasSerialNumber = true;
-    selectedItems[currentItemIndex].serialNumber = serialNumber;
+    if (serialNumber.trim() === "") {
+      selectedItems[currentItemIndex].hasSerialNumber = false;
+      selectedItems[currentItemIndex].serialNumber = "";
+    } else {
+      selectedItems[currentItemIndex].hasSerialNumber = true;
+      selectedItems[currentItemIndex].serialNumber = serialNumber;
+    }
     localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
     renderItems();
   }
@@ -88,24 +98,15 @@ $(document).ready(function () {
     removeItem(index);
   });
 
-  $itemsList.on("click", ".assign-serial-number", function () {
+  $itemsList.on("click", ".assign-serial-number, .serial-number-status", function () {
     const index = $(this).closest(".item").data("index");
     showSerialNumberModal(index);
   });
 
   $confirmSerialNumber.on("click", function () {
     const serialNumber = $serialNumberInput.val().trim();
-    if (serialNumber) {
-      assignSerialNumber(serialNumber);
-      $serialNumberModal.modal("hide");
-      $serialNumberInput.val("");
-      closeSwipeMenu();
-    } else {
-      alert("Please enter a valid serial number");
-    }
-  });
-
-  $cancelSerialNumber.on("click", function () {
+    updateSerialNumber(serialNumber);
+    $serialNumberModal.modal("hide");
     closeSwipeMenu();
   });
 
