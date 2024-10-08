@@ -87,7 +87,9 @@ footer {
   padding: 2px 5px;
   border-radius: 3px;
   font-size: 0.8em;
-  margin-top: 3px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .serial-number-status.pending {
@@ -98,4 +100,8 @@ footer {
 .serial-number-status.assigned {
   background-color: #dff0d8;
   color: #4caf50;
+}
+
+.serial-number-status:hover {
+  filter: brightness(90%);
 }
