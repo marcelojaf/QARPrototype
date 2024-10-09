@@ -24,41 +24,85 @@
       <header class="bg-primary text-white p-3">
         <a
           href="index.html"
-          class="back-button text-white"
-          ><i class="fas fa-arrow-left"></i
-        ></a>
+          class="back-button text-white">
+          <i class="fas fa-arrow-left"></i>
+        </a>
         <h1 class="mb-0">Select a Customer</h1>
       </header>
 
       <main class="p-3">
         <h2 class="mb-4">Select Customer and Contact</h2>
+
         <form
           id="customer-form"
           class="form-container">
+          <!-- List of Customers for selection inside the form -->
           <div class="form-group">
-            <label for="customer">Customer:</label>
-            <input
-              type="text"
-              id="customer"
-              class="form-control" />
+            <label for="customer-list">Select Customer:</label>
+            <select
+              id="customer-list"
+              class="form-control mb-3">
+              <option value="">Select a Customer</option>
+              <option
+                value="Advantage Lift Solutions|7670 Woodway Drive Suite 230|Houston TX 77063">
+                <strong>Advantage Lift Solutions</strong>
+                <span>7670 Woodway Drive Suite 230, Houston TX 77063</span>
+              </option>
+              <option
+                value="Apache Corporation|303 Veterans Airpark Ln|Midland TX 79705">
+                <strong>Apache Corporation</strong>
+                <span>303 Veterans Airpark Ln, Midland TX 79705</span>
+              </option>
+              <!-- Additional customer examples -->
+              <option value="Baker Hughes|2001 Rankin Rd|Houston TX 77073">
+                <strong>Baker Hughes</strong>
+                <span>2001 Rankin Rd, Houston TX 77073</span>
+              </option>
+              <option
+                value="Chevron Corporation|1500 Louisiana St|Houston TX 77002">
+                <strong>Chevron Corporation</strong>
+                <span>1500 Louisiana St, Houston TX 77002</span>
+              </option>
+              <option value="ExxonMobil|5959 Las Colinas Blvd|Irving TX 75039">
+                <strong>ExxonMobil</strong>
+                <span>5959 Las Colinas Blvd, Irving TX 75039</span>
+              </option>
+              <option
+                value="Halliburton|3000 N Sam Houston Pkwy E|Houston TX 77032">
+                <strong>Halliburton</strong>
+                <span>3000 N Sam Houston Pkwy E, Houston TX 77032</span>
+              </option>
+            </select>
           </div>
+
+          <!-- Div to display selected customer information -->
+          <div
+            id="selected-customer"
+            class="card shadow-sm mt-3 p-3 border-0 rounded">
+            <div class="card-body">
+              <h5 class="card-title">
+                <span
+                  id="customer-name"
+                  class="text-primary"
+                  >None selected</span
+                >
+              </h5>
+              <p class="card-text mb-0">
+                <span
+                  id="customer-address"
+                  class="text-muted"
+                  >Please select a customer</span
+                >
+              </p>
+            </div>
+          </div>
+
           <div class="form-group">
-            <label for="contact">Select Contact:</label>
+            <label for="contact">Contact:</label>
             <input
               type="text"
               id="contact"
               class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="shipping">Select Shipping Address:</label>
-            <select
-              id="shipping"
-              class="form-control">
-              <option value="">Select Shipping Address</option>
-              <option value="address1">Address 1</option>
-              <option value="address2">Address 2</option>
-              <option value="address3">Address 3</option>
-            </select>
           </div>
           <div class="form-group">
             <label for="delivery-date">Delivery Date:</label>

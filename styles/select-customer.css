@@ -44,6 +44,11 @@ footer {
   border-top: 1px solid #e9ecef;
 }
 
+/* Additional customizations if needed */
+#selected-customer {
+  background-color: #c0c1c4;
+}
+
 @media (max-height: 600px) {
   .form-group {
     margin-bottom: 0.5rem;

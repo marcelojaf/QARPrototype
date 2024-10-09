@@ -42,6 +42,7 @@ h2 {
 
 .ticket:hover {
   background-color: #f8f9fa;
+  cursor: pointer;
 }
 
 .company-name {

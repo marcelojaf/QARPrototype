@@ -105,3 +105,8 @@ footer {
 .serial-number-status:hover {
   filter: brightness(90%);
 }
+
+#info-tooltip {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
