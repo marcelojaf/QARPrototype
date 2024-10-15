@@ -43,174 +43,161 @@
           Select Customer and Contact
         </h2>
 
-        <div class="form-group">
-          <label for="customer-list">Select Customer:</label>
-          <select
-            id="customer-list"
-            class="form-control mb-3">
-            <option value="">Select a Customer</option>
-            <option
-              value="Advantage Lift Solutions|7670 Woodway Drive Suite 230|Houston TX 77063">
-              <strong>Advantage Lift Solutions</strong>
-              <span>7670 Woodway Drive Suite 230, Houston TX 77063</span>
-            </option>
-            <option
-              value="Apache Corporation|303 Veterans Airpark Ln|Midland TX 79705">
-              <strong>Apache Corporation</strong>
-              <span>303 Veterans Airpark Ln, Midland TX 79705</span>
-            </option>
-            <option value="Baker Hughes|2001 Rankin Rd|Houston TX 77073">
-              <strong>Baker Hughes</strong>
-              <span>2001 Rankin Rd, Houston TX 77073</span>
-            </option>
-            <option
-              value="Chevron Corporation|1500 Louisiana St|Houston TX 77002">
-              <strong>Chevron Corporation</strong>
-              <span>1500 Louisiana St, Houston TX 77002</span>
-            </option>
-            <option value="ExxonMobil|5959 Las Colinas Blvd|Irving TX 75039">
-              <strong>ExxonMobil</strong>
-              <span>5959 Las Colinas Blvd, Irving TX 75039</span>
-            </option>
-            <option
-              value="Halliburton|3000 N Sam Houston Pkwy E|Houston TX 77032">
-              <strong>Halliburton</strong>
-              <span>3000 N Sam Houston Pkwy E, Houston TX 77032</span>
-            </option>
-          </select>
-        </div>
-
-        <div
-          id="selected-customer"
-          class="card shadow-sm mt-3 p-3 border-0 rounded"
-          style="display: none">
-          <div class="card-body">
-            <h5
-              id="customer-name"
-              class="card-title text-primary"></h5>
-            <p
-              id="customer-address"
-              class="text-muted"></p>
+        <form id="customer-form">
+          <div class="form-group">
+            <label for="customer-list">Select Customer:</label>
+            <select
+              id="customer-list"
+              class="form-control">
+              <option value="">Select a Customer</option>
+              <option
+                value="advantage|7670 Woodway Drive Suite 230|Houston TX 77063">
+                Advantage Lift Solutions
+              </option>
+              <option value="apache|303 Veterans Airpark Ln|Midland TX 79705">
+                Apache Corporation
+              </option>
+              <option value="baker|2001 Rankin Rd|Houston TX 77073">
+                Baker Hughes
+              </option>
+              <option value="chevron|1500 Louisiana St|Houston TX 77002">
+                Chevron Corporation
+              </option>
+              <option value="exxon|5959 Las Colinas Blvd|Irving TX 75039">
+                ExxonMobil
+              </option>
+              <option
+                value="halliburton|3000 N Sam Houston Pkwy E|Houston TX 77032">
+                Halliburton
+              </option>
+            </select>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="contact-input">Contact:</label>
-          <input
-            type="text"
-            id="contact-input"
-            class="form-control" />
-        </div>
+          <div
+            id="selected-customer"
+            class="card shadow-sm mt-3 p-3 border-0 rounded">
+            <div class="card-body">
+              <h5
+                id="customer-name"
+                class="card-title text-primary">
+                None selected
+              </h5>
+              <p
+                id="customer-address"
+                class="text-muted">
+                Please select a customer
+              </p>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="delivery-date">Delivery Date:</label>
-          <input
-            type="date"
-            id="delivery-date"
-            class="form-control" />
-        </div>
+          <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input
+              type="text"
+              id="contact"
+              class="form-control" />
+          </div>
 
-        <div class="form-group">
-          <label for="delivery-field">Delivery Field:</label>
-          <input
-            type="text"
-            id="delivery-field"
-            class="form-control" />
-        </div>
+          <div class="form-group">
+            <label for="delivery-date">Delivery Date:</label>
+            <input
+              type="date"
+              id="delivery-date"
+              class="form-control" />
+          </div>
 
-        <div class="form-group">
-          <label for="delivery-well">Delivery Well:</label>
-          <input
-            type="text"
-            id="delivery-well"
-            class="form-control" />
-        </div>
+          <div class="form-group">
+            <label for="delivery-field">Delivery Field:</label>
+            <input
+              type="text"
+              id="delivery-field"
+              class="form-control" />
+          </div>
 
-        <div class="form-group">
-          <label for="delivery-location">Delivery Location:</label>
-          <input
-            type="text"
-            id="delivery-location"
-            class="form-control" />
-        </div>
+          <div class="form-group">
+            <label for="delivery-well">Delivery Well:</label>
+            <input
+              type="text"
+              id="delivery-well"
+              class="form-control" />
+          </div>
 
-        <div class="form-group">
-          <label for="delivery-state">Delivery State:</label>
-          <select
-            id="delivery-state"
-            class="form-control">
-            <option value="">Select State</option>
-            <option value="AL">AL - Alabama</option>
-            <option value="AK">AK - Alaska</option>
-            <option value="AZ">AZ - Arizona</option>
-            <option value="AR">AR - Arkansas</option>
-            <option value="CA">CA - California</option>
-            <option value="CO">CO - Colorado</option>
-            <option value="CT">CT - Connecticut</option>
-            <option value="DE">DE - Delaware</option>
-            <option value="FL">FL - Florida</option>
-            <option value="GA">GA - Georgia</option>
-            <option value="HI">HI - Hawaii</option>
-            <option value="ID">ID - Idaho</option>
-            <option value="IL">IL - Illinois</option>
-            <option value="IN">IN - Indiana</option>
-            <option value="IA">IA - Iowa</option>
-            <option value="KS">KS - Kansas</option>
-            <option value="KY">KY - Kentucky</option>
-            <option value="LA">LA - Louisiana</option>
-            <option value="ME">ME - Maine</option>
-            <option value="MD">MD - Maryland</option>
-            <option value="MA">MA - Massachusetts</option>
-            <option value="MI">MI - Michigan</option>
-            <option value="MN">MN - Minnesota</option>
-            <option value="MS">MS - Mississippi</option>
-            <option value="MO">MO - Missouri</option>
-            <option value="MT">MT - Montana</option>
-            <option value="NE">NE - Nebraska</option>
-            <option value="NV">NV - Nevada</option>
-            <option value="NH">NH - New Hampshire</option>
-            <option value="NJ">NJ - New Jersey</option>
-            <option value="NM">NM - New Mexico</option>
-            <option value="NY">NY - New York</option>
-            <option value="NC">NC - North Carolina</option>
-            <option value="ND">ND - North Dakota</option>
-            <option value="OH">OH - Ohio</option>
-            <option value="OK">OK - Oklahoma</option>
-            <option value="OR">OR - Oregon</option>
-            <option value="PA">PA - Pennsylvania</option>
-            <option value="RI">RI - Rhode Island</option>
-            <option value="SC">SC - South Carolina</option>
-            <option value="SD">SD - South Dakota</option>
-            <option value="TN">TN - Tennessee</option>
-            <option value="TX">TX - Texas</option>
-            <option value="UT">UT - Utah</option>
-            <option value="VT">VT - Vermont</option>
-            <option value="VA">VA - Virginia</option>
-            <option value="WA">WA - Washington</option>
-            <option value="WV">WV - West Virginia</option>
-            <option value="WI">WI - Wisconsin</option>
-            <option value="WY">WY - Wyoming</option>
-            <option value="DC">DC - District of Columbia</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="delivery-location">Delivery Location:</label>
+            <input
+              type="text"
+              id="delivery-location"
+              class="form-control" />
+          </div>
 
-        <h2 class="mt-4 mb-3">ITEMS</h2>
-        <div class="items-list">
-          <!-- Items will be dynamically added here -->
-        </div>
+          <div class="form-group">
+            <label for="delivery-state">Delivery State:</label>
+            <select
+              id="delivery-state"
+              class="form-control">
+              <option value="">Select State</option>
+              <option value="AL">AL - Alabama</option>
+              <option value="AK">AK - Alaska</option>
+              <option value="AZ">AZ - Arizona</option>
+              <option value="AR">AR - Arkansas</option>
+              <option value="CA">CA - California</option>
+              <option value="CO">CO - Colorado</option>
+              <option value="CT">CT - Connecticut</option>
+              <option value="DE">DE - Delaware</option>
+              <option value="FL">FL - Florida</option>
+              <option value="GA">GA - Georgia</option>
+              <option value="HI">HI - Hawaii</option>
+              <option value="ID">ID - Idaho</option>
+              <option value="IL">IL - Illinois</option>
+              <option value="IN">IN - Indiana</option>
+              <option value="IA">IA - Iowa</option>
+              <option value="KS">KS - Kansas</option>
+              <option value="KY">KY - Kentucky</option>
+              <option value="LA">LA - Louisiana</option>
+              <option value="ME">ME - Maine</option>
+              <option value="MD">MD - Maryland</option>
+              <option value="MA">MA - Massachusetts</option>
+              <option value="MI">MI - Michigan</option>
+              <option value="MN">MN - Minnesota</option>
+              <option value="MS">MS - Mississippi</option>
+              <option value="MO">MO - Missouri</option>
+              <option value="MT">MT - Montana</option>
+              <option value="NE">NE - Nebraska</option>
+              <option value="NV">NV - Nevada</option>
+              <option value="NH">NH - New Hampshire</option>
+              <option value="NJ">NJ - New Jersey</option>
+              <option value="NM">NM - New Mexico</option>
+              <option value="NY">NY - New York</option>
+              <option value="NC">NC - North Carolina</option>
+              <option value="ND">ND - North Dakota</option>
+              <option value="OH">OH - Ohio</option>
+              <option value="OK">OK - Oklahoma</option>
+              <option value="OR">OR - Oregon</option>
+              <option value="PA">PA - Pennsylvania</option>
+              <option value="RI">RI - Rhode Island</option>
+              <option value="SC">SC - South Carolina</option>
+              <option value="SD">SD - South Dakota</option>
+              <option value="TN">TN - Tennessee</option>
+              <option value="TX">TX - Texas</option>
+              <option value="UT">UT - Utah</option>
+              <option value="VT">VT - Vermont</option>
+              <option value="VA">VA - Virginia</option>
+              <option value="WA">WA - Washington</option>
+              <option value="WV">WV - West Virginia</option>
+              <option value="WI">WI - Wisconsin</option>
+              <option value="WY">WY - Wyoming</option>
+              <option value="DC">DC - District of Columbia</option>
+            </select>
+          </div>
 
-        <div class="d-flex justify-content-between mt-4">
-          <button
-            id="add-item"
-            class="btn btn-secondary">
-            Add Item
-          </button>
-          <button
-            id="save-ticket"
-            class="btn btn-primary">
-            Save
-          </button>
-        </div>
+          <div class="mt-4">
+            <a
+              href="select-items.html"
+              class="btn btn-primary btn-block"
+              >SAVE AND EDIT ITEMS</a
+            >
+          </div>
+        </form>
       </main>
     </div>
 
