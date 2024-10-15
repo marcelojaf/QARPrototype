@@ -1,0 +1,81 @@
+.phone-container {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+h2 {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Add this new style for labels */
+label {
+  font-weight: bold;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Add this new style for select and input fields */
+select,
+input[type="text"],
+input[type="date"] {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.items-list {
+  margin-top: 20px;
+}
+
+.item {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.item-details {
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+/* Add this new style for the selected customer card */
+#selected-customer {
+  background-color: #c0c1c4;
+}
+
+@media (max-height: 600px) {
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    padding: 0.25rem 0.5rem;
+  }
+}

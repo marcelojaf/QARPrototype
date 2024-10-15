@@ -55,7 +55,7 @@
               <span class="d-block">2024-07-05</span>
               <span class="d-block">$550.00</span>
               <span class="d-block">David Wilson</span>
-              <span class="badge badge-warning">Draft</span>
+              <span class="badge badge-info">Checked-Out</span>
             </li>
           </ul>
         </div>
@@ -64,20 +64,6 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      $(document).ready(function () {
-        // Handle click on ticket item
-        $(".ticket").on("click", function () {
-          const ticketId = $(this).data("ticket-id");
-
-          // Store the selected ticket ID or any other data you need in localStorage
-          localStorage.setItem("selectedTicket", ticketId);
-
-          // Navigate to the select-customer.html page
-          window.location.href = "select-customer.html";
-        });
-      });
-    </script>
+    <script src="js/index.js"></script>
   </body>
 </html>
