@@ -1,3 +1,4 @@
+/* index.css */
 .phone-container {
   max-width: 400px;
   margin: 0 auto;
@@ -15,9 +16,13 @@
   margin-right: 15px;
 }
 
+/* Ajustando o main para ter altura correta */
 main {
   flex: 1;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1rem;
 }
 
 h2 {
@@ -25,12 +30,13 @@ h2 {
   font-size: 1.2rem;
 }
 
+/* Ajustando o container da lista para ocupar espaço disponível */
 .ticket-list-container {
+  flex: 1;
   border: 1px solid #ccc;
   border-radius: 4px;
   overflow-y: auto;
-  max-height: calc(100% - 100px);
-  cursor: pointer;
+  margin-top: 1rem;
 }
 
 .ticket-list {
@@ -38,6 +44,8 @@ h2 {
 }
 
 .ticket {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
   transition: background-color 0.3s ease;
 }
 
@@ -50,7 +58,54 @@ h2 {
   font-weight: bold;
 }
 
-.badge-warning {
-  background-color: #ffc107;
-  color: #212529;
+/* Badge styles */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 0.8em;
+}
+
+.badge-draft {
+  background-color: rgba(255, 152, 0, 0.15);
+  color: #ff9800;
+  border: 1px solid #ff9800;
+}
+
+.badge-checked-out {
+  background-color: #e3f2fd;
+  color: #2196f3;
+  border: 1px solid #2196f3;
+}
+
+.badge-submitted {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+/* Search button container */
+#searchButton {
+  margin-bottom: 1rem;
+}
+
+/* Form check styling */
+.form-check {
+  margin-bottom: 1rem;
+  padding-left: 1.75rem;
+}
+
+.form-check-input {
+  margin-top: 0.25rem;
+}
+
+.form-check-label {
+  color: #495057;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+#cleanFilterButton:hover {
+  background-color: #dc3545;
+  color: white;
 }
