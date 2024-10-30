@@ -2,22 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <title>Field Ticket List</title>
-    
+
     <!-- Third-party CSS -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
 
     <!-- Application CSS -->
-    <link href="styles/global.css" rel="stylesheet" />
-    <link href="styles/index.css" rel="stylesheet" />
+    <link
+      href="styles/global.css"
+      rel="stylesheet" />
+    <link
+      href="styles/index.css"
+      rel="stylesheet" />
   </head>
   <body>
     <!-- Phone Container -->
@@ -28,22 +32,34 @@
       </div>
 
       <!-- Main Content -->
-      <div class="p-3" role="main">
-        
+      <div
+        class="p-3"
+        role="main">
         <!-- Main action buttons aligned horizontally -->
-        <div class="d-flex justify-content-around align-items-center mb-3" id="actionButtons">
+        <div
+          class="d-flex justify-content-around align-items-center mb-3"
+          id="actionButtons">
           <!-- New Ticket Button -->
-          <a href="select-customer.html" class="btn btn-primary d-flex align-items-center btn-equal-height">
+          <a
+            href="select-customer.html"
+            class="btn btn-primary d-flex align-items-center btn-equal-height">
             <i class="fas fa-plus me-1"></i> NEW
           </a>
 
           <!-- Search Button (linked to modal) -->
-          <button class="btn btn-outline-secondary d-flex align-items-center btn-equal-height" id="searchButton" data-bs-toggle="modal" data-bs-target="#searchModal">
+          <button
+            class="btn btn-outline-secondary d-flex align-items-center btn-equal-height"
+            id="searchButton"
+            data-bs-toggle="modal"
+            data-bs-target="#searchModal">
             <i class="fas fa-search me-1"></i> Search
           </button>
 
           <!-- Clear Filter Button, hidden by default -->
-          <button class="btn btn-outline-danger d-flex align-items-center btn-equal-height" id="cleanFilterButton" style="display: none">
+          <button
+            class="btn btn-outline-danger align-items-center btn-equal-height"
+            id="cleanFilterButton"
+            style="display: none">
             <i class="fas fa-times-circle me-1"></i> Clear Filter
           </button>
         </div>
@@ -61,51 +77,57 @@
       class="modal fade"
       tabindex="-1"
       aria-labelledby="searchModalLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="searchModalLabel">
+            <h5
+              class="modal-title"
+              id="searchModalLabel">
               Search for a Field Ticket
             </h5>
             <button
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+              aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-check mb-3">
               <input
                 type="checkbox"
                 class="form-check-input"
-                id="includeSubmitted"
-              />
-              <label class="form-check-label" for="includeSubmitted"
+                id="includeSubmitted" />
+              <label
+                class="form-check-label"
+                for="includeSubmitted"
                 >Include Submitted</label
               >
             </div>
             <div class="form-group">
-              <label for="searchInput" class="form-label">Search term</label>
+              <label
+                for="searchInput"
+                class="form-label"
+                >Search term</label
+              >
               <input
                 type="text"
                 class="form-control"
                 id="searchInput"
-                placeholder="Enter search term"
-              />
+                placeholder="Enter search term" />
             </div>
           </div>
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+              data-bs-dismiss="modal">
               Cancel
             </button>
-            <button type="button" class="btn btn-primary" id="searchConfirm">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="searchConfirm">
               Search
             </button>
           </div>
