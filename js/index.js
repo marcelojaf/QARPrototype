@@ -167,7 +167,7 @@ $(document).ready(function () {
     $("#searchModal").modal("hide");
 
     // Show clean filter button if there's a search term
-    if (searchTerm.length > 0) {
+    if (searchTerm.length > 0 || showSubmitted) {
       $("#cleanFilterButton").show();
     } else {
       $("#cleanFilterButton").hide();
