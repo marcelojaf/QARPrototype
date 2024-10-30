@@ -84,105 +84,103 @@ $(document).ready(function () {
   ];
 
   // State variables
-  let filteredTickets = [...tickets]; // tickets is defined in tickets-data.js
+  let filteredTickets = [...tickets];
   let showSubmitted = false;
   let searchTerm = "";
 
   // Function to format date from yyyy-MM-dd to locale date string
   function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US");
+      const date = new Date(dateString);
+      return date.toLocaleDateString("en-US");
   }
 
   // Function to format currency
   function formatCurrency(amount) {
-    return amount.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
+      return amount.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD"
+      });
   }
 
   // Function to create ticket HTML
   function createTicketHtml(ticket) {
-    return `
-           <div class="ticket" data-ticket-id="${ticket.id}">
-               <strong>${ticket.id}</strong>
-               <div class="company-name">${ticket.company}</div>
-               <div>${formatDate(ticket.date)}</div>
-               <div>${formatCurrency(ticket.amount)}</div>
-               <div>${ticket.responsible}</div>
-               <span class="badge badge-${ticket.status.toLowerCase()}">${ticket.status}</span>
-           </div>
-       `;
+      return `
+          <div class="ticket" data-ticket-id="${ticket.id}">
+              <strong>${ticket.id}</strong>
+              <div class="company-name">${ticket.company}</div>
+              <div>${formatDate(ticket.date)}</div>
+              <div>${formatCurrency(ticket.amount)}</div>
+              <div>${ticket.responsible}</div>
+              <span class="badge badge-${ticket.status.toLowerCase()}">${ticket.status}</span>
+          </div>
+      `;
   }
 
   // Function to update ticket list based on filters
   function updateTicketList() {
-    const container = $(".ticket-list-container");
-    container.empty();
+      const container = $(".ticket-list-container");
+      container.empty();
 
-    const visibleTickets = filteredTickets
-      .filter((ticket) => showSubmitted || ticket.status !== "Submitted")
-      .filter((ticket) => {
-        if (!searchTerm) return true;
-        const term = searchTerm.toLowerCase();
-        return (
-          ticket.id.toLowerCase().includes(term) ||
-          ticket.company.toLowerCase().includes(term)
-        );
+      const visibleTickets = filteredTickets
+          .filter(ticket => showSubmitted || ticket.status !== "Submitted")
+          .filter(ticket => {
+              if (!searchTerm) return true;
+              const term = searchTerm.toLowerCase();
+              return ticket.id.toLowerCase().includes(term) ||
+                     ticket.company.toLowerCase().includes(term);
+          });
+
+      visibleTickets.forEach(ticket => {
+          container.append(createTicketHtml(ticket));
       });
 
-    visibleTickets.forEach((ticket) => {
-      container.append(createTicketHtml(ticket));
-    });
-
-    // Reattach click handlers
-    attachTicketClickHandlers();
+      // Reattach click handlers
+      attachTicketClickHandlers();
   }
 
   // Function to attach click handlers to tickets
   function attachTicketClickHandlers() {
-    $(".ticket").on("click", function () {
-      const ticketId = $(this).data("ticket-id");
-      window.location.href = "edit-fieldticket.html?id=" + ticketId;
-    });
+      $(".ticket").on("click", function() {
+          const ticketId = $(this).data("ticket-id");
+          window.location.href = "edit-fieldticket.html?id=" + ticketId;
+      });
   }
 
   // Event handler for Include Submitted checkbox
-  $("#includeSubmitted").on("change", function () {
-    showSubmitted = $(this).is(":checked");
-    $("#searchButton").toggle(showSubmitted);
-    updateTicketList();
+  $("#includeSubmitted").on("change", function() {
+      showSubmitted = $(this).is(":checked");
+      updateTicketList();
   });
 
   // Event handler for Search button click
-  $("#searchButton button").on("click", function () {
-    $("#searchModal").modal("show");
+  $("#searchButton button").on("click", function() {
+      $("#searchModal").modal("show");
   });
 
   // Event handler for Search confirmation in modal
-  $("#searchConfirm").on("click", function () {
-    searchTerm = $("#searchInput").val();
-    updateTicketList();
-    $("#searchModal").modal("hide");
+  $("#searchConfirm").on("click", function() {
+      searchTerm = $("#searchInput").val();
+      showSubmitted = $("#includeSubmitted").is(":checked");
+      updateTicketList();
+      $("#searchModal").modal("hide");
 
-    // Show/hide clean filter button based on search term
-    $("#cleanFilterButton").toggle(searchTerm.length > 0);
+      // Show/hide clean filter button based on search term
+      $("#cleanFilterButton").toggle(searchTerm.length > 0);
   });
 
   // Event handler for modal hidden event
-  $("#searchModal").on("hidden.bs.modal", function () {
-    // Keep the search term and list state when closing the modal
-    // Only clear the input field
-    $("#searchInput").val("");
+  $("#searchModal").on("hidden.bs.modal", function() {
+      $("#searchInput").val("");
   });
 
   // Event handler for clean filter button
-  $("#cleanFilterButton").on("click", function () {
-    searchTerm = "";
-    $("#searchInput").val("");
-    updateTicketList();
-    $(this).hide();
+  $("#cleanFilterButton").on("click", function() {
+      searchTerm = "";
+      showSubmitted = false;
+      $("#searchInput").val("");
+      $("#includeSubmitted").prop("checked", false);
+      updateTicketList();
+      $(this).hide();
   });
 
   // Initialize the list

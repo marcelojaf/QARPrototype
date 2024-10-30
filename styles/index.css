@@ -1,4 +1,4 @@
-/* index.css */
+/* Base container for mobile layout */
 .phone-container {
   max-width: 400px;
   margin: 0 auto;
@@ -6,8 +6,30 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Main content area */
+[role="main"] {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;  /* Important for nested flex scrolling */
+}
+
+/* List container with scroll */
+.ticket-list-container {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 1rem;
+  min-height: 0;  /* Important for nested flex scrolling */
+}
+
+/* Rest of your existing styles */
 .menu-button {
   background: none;
   border: none;
@@ -16,27 +38,9 @@
   margin-right: 15px;
 }
 
-/* Ajustando o main para ter altura correta */
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 1rem;
-}
-
 h2 {
   color: #666;
   font-size: 1.2rem;
-}
-
-/* Ajustando o container da lista para ocupar espaço disponível */
-.ticket-list-container {
-  flex: 1;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow-y: auto;
-  margin-top: 1rem;
 }
 
 .ticket-list {
@@ -82,12 +86,6 @@ h2 {
   border: none;
 }
 
-/* Search button container */
-#searchButton {
-  margin-bottom: 1rem;
-}
-
-/* Form check styling */
 .form-check {
   margin-bottom: 1rem;
   padding-left: 1.75rem;
@@ -108,4 +106,11 @@ h2 {
 #cleanFilterButton:hover {
   background-color: #dc3545;
   color: white;
+}
+
+/* Additional CSS to equalize button height */
+.btn-equal-height {
+  height: 100%; /* Forces buttons to match the tallest button in the row */
+  padding-top: 10px; /* Adjusts padding for visual balance */
+  padding-bottom: 10px;
 }
